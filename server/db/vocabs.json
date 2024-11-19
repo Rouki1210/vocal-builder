@@ -1,0 +1,94 @@
+[
+    {
+      "english": "car",
+      "german": "auto"
+    },
+    {
+      "english": "motorbike",
+      "german": "motorrad"
+    },
+    {
+      "english": "bicycle",
+      "german": "fahrrad"
+    },
+    {
+      "english": "train",
+      "german": "zug"
+    },
+    {
+      "english": "plane",
+      "german": "flugzeug"
+    },
+    {
+      "english": "ship",
+      "german": "schiff"
+    },
+    {
+      "english": "bus",
+      "german": "bus"
+    },
+    {
+      "english": "helicopter",
+      "german": "hubschrauber"
+    },
+    {
+      "english": "boat",
+      "german": "boot"
+    },
+    {
+      "english": "truck",
+      "german": "lkw"
+    },
+    {
+      "english": "van",
+      "german": "transporter"
+    },
+    {
+      "english": "tram",
+      "german": "straßenbahn"
+    },
+    {
+      "english": "subway",
+      "german": "u-bahn"
+    },
+    {
+      "english": "taxi",
+      "german": "taxi"
+    },
+    {
+      "english": "scooter",
+      "german": "roller"
+    },
+    {
+      "english": "skateboard",
+      "german": "skateboard"
+    },
+    {
+      "english": "rollerblades",
+      "german": "inliner"
+    },
+    {
+      "english": "spaceship",
+      "german": "raumschiff"
+    },
+    {
+      "english": "ferry",
+      "german": "fähre"
+    },
+    {
+      "english": "canoe",
+      "german": "kanu"
+    },
+    {
+      "english": "tractor",
+      "german": "traktor"
+    },
+    {
+      "english": "ambulance",
+      "german": "krankenwagen"
+    },
+    {
+      "english": "fire truck",
+      "german": "feuerwehrwagen"
+    }
+]
