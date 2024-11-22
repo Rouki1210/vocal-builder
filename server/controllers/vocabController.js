@@ -69,6 +69,16 @@ const deleteVocab = async (req, res) => {
    }
 }
 
+const searchVocab = async (req, res) => {
+   try{
+      let search = req.body.search;
+      let find = await vocabModel.find({english: {$regex: new RegExp('.*'+search+'.*','i')}}).limit(10).exec();
+      res.send(find)
+   } catch (err){
+      res.send(err);
+   }
+}
+
 //export functions
 module.exports = {
    viewAllVocabs,
@@ -76,5 +86,6 @@ module.exports = {
    deleteAllVocabs,
    viewVocab,
    editVocab,
-   deleteVocab
+   deleteVocab,
+   searchVocab
 }

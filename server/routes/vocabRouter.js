@@ -10,12 +10,18 @@ const vocabRouter = (app) => {
       .get(vocabController.viewAllVocabs)
       .post(vocabController.addVocab)
       .delete(vocabController.deleteAllVocabs)
+      
 
    //group 2: need to include "id"
    app.route('/vocabs/:id')
       .get(vocabController.viewVocab)
       .put(vocabController.editVocab)
       .delete(vocabController.deleteVocab)
+
+   app.route('/vocab/search/')
+      .post(vocabController.searchVocab)
+   
+
 }
 
 //export router

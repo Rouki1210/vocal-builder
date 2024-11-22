@@ -6,6 +6,7 @@ import Show from './views/Show.vue'
 import Edit from './views/Edit.vue'
 import About from './views/About.vue'
 import Home from './views/Home.vue'
+import Search from './views/Search.vue'
 
 Vue.use(Router)
 
@@ -42,8 +43,13 @@ routes: [
         path: '/about',
         name: 'About',
         component: About
+    },
+    {
+        path: '/words/search',
+        name: 'Search',
+        component: Search
     }
-   ]
+    ]
 })
 
 export default router

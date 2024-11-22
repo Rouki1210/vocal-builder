@@ -12,6 +12,9 @@
           <router-link to="/about" class="item">
             <i class="question circle outline icon"></i>About
           </router-link>
+          <router-link to="/words/search" class="item">
+            <i class="search icon"></i>Search
+          </router-link>
           <a href="https://greenwich.edu.vn/en/english/" class="item">
             Greenwich Vietnam
           </a>
@@ -45,6 +48,7 @@ export default {
 
 <script setup>
   import {useDark, useToggle} from "@vueuse/core";
+import router from "./router";
   const isDark = useDark();
   const toggleDark = useToggle(isDark);
 </script>

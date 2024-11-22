@@ -55,3 +55,14 @@ export const EditVocab = async (id, word) => {
         console.error(err)
     }
 }
+
+export const searchVocab = async (word) => {
+    try{
+        let response = await axios.get(backend, {
+            params: {query: word},
+        })
+        return response.data
+    }catch(err) {
+        console.error(err)
+    }
+}
