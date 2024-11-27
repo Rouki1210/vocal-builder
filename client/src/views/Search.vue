@@ -40,7 +40,7 @@ export default {
                 console.log("Result", data);
                 console.log(this.searchTerm);
                 console.log(this.results);
-                this.results = data.results || [];
+                this.results = data?.results || [];
             } catch (error){
                 console.error("Error", error);
                 this.results = [];
