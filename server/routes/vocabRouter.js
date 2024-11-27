@@ -10,6 +10,7 @@ const vocabRouter = (app) => {
       .get(vocabController.viewAllVocabs)
       .post(vocabController.addVocab)
       .delete(vocabController.deleteAllVocabs)
+      .post(vocabController.searchVocab)
       
 
    //group 2: need to include "id"
@@ -17,9 +18,6 @@ const vocabRouter = (app) => {
       .get(vocabController.viewVocab)
       .put(vocabController.editVocab)
       .delete(vocabController.deleteVocab)
-
-   app.route('/vocab/search/')
-      .post(vocabController.searchVocab)
    
 
 }

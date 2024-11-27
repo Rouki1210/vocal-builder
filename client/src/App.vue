@@ -19,9 +19,6 @@
             Greenwich Vietnam
           </a>
         </div>
-        <!-- <button @click="toggleDark()"> Enter here
-        </button>
-        <p>Dark theme: {{ isDark }}</p> -->
       </div>
     </div>
 
@@ -45,17 +42,3 @@ export default {
   name: 'App'
 }
 </script>
-
-<script setup>
-  import {useDark, useToggle} from "@vueuse/core";
-import router from "./router";
-  const isDark = useDark();
-  const toggleDark = useToggle(isDark);
-</script>
-
-<!-- <style>
-.dark{
-  background: #16171d;
-  color: #fff;
-}
-</style> -->

@@ -58,10 +58,10 @@ export const EditVocab = async (id, word) => {
 
 export const searchVocab = async (word) => {
     try{
-        let response = await axios.get(backend, {
+        const response = await axios.get(backend, {
             params: {query: word},
-        })
-        return response.data
+        });
+        console.log(response.data);
     }catch(err) {
         console.error(err)
     }

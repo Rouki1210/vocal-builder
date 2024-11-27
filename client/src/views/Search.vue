@@ -1,11 +1,16 @@
 <template>
     <div>
         <h1>Search word</h1>
-        <form>
+        <form @submit.prevent>
             <div>
                 <i class="search icon"></i>
-                <input type="text" id="search-box" @keyup="search" />
+                <input type="text" id="search-box" v-model="searchTerm" @keyup="search" placeholder="Type to search..."/>
             </div>
+            <ul v-if="results.length">
+                <li v-for="(result, index) in results" :key="index">{{ result }}</li>
+            </ul>
+                <p v-if="!results.length && searchTerm && !loading">No results found.</p>
+                <p v-if="loading">Loading...</p>
         </form>
     </div>
 </template>
@@ -13,24 +18,53 @@
 
 <script>
 import { searchVocab } from '@/helpers/api';
-import axios from 'axios';
-
-const backend ='http://localhost:3000/vocabs/';
 
 export default {
     name: "Search",
-    data(){
-        function search(e){
-            let search = e.target.value.trim();
-            axios.post(backend, {
-                search: search
-            }).then(res => {
-                console.log(res)
-            })
+    data() {
+        return {
+            searchTerm: "",
+            results: [],
+            loading: false,
+        };
+    },
+    methods: {
+        async search() {
+            if(!this.searchTerm.trim()){
+                this.results = [];
+                return;
+            }
+            try{
+                this.loading = true;
+                const data = await searchVocab(this.searchTerm);
+                console.log("Result", data);
+                console.log(this.searchTerm);
+                console.log(this.results);
+                this.results = data.results || [];
+            } catch (error){
+                console.error("Error", error);
+                this.results = [];
+            } finally {
+                this.loading = false;
+            }
         }
-
-        return {search}
     }
+    // data(){
+    //     function search(e){
+    //         let search = e.target.value.trim();
+    //         axios.post(backend, {
+    //             search
+    //         }).then(res => {
+    //             console.log(res)
+    //         })
+    //     }
+
+    //     return {search}
+    // },
+    //     return {
+    //         word: {},
+    //     }
+    // },
 
 };
 </script>
