@@ -69,7 +69,7 @@ export const searchVocab = async (word) => {
 
 export const testVocab = async () =>{
     try {
-        const response = await axios.get(`${backend}test`);
+        const response = await axios.get(`http://localhost:3000/test`);
         return response.data;
     } catch (error) {
         console.error("Error fetching quiz:", error);
