@@ -17,6 +17,14 @@
         <input type="text" disabled :value="word.german"/>
       </div>
       <br />
+      <div class="ui labeled input fluid">
+        <div class="ui label">
+          <i class="vietnam flag"></i>
+          Vietnamese
+        </div>
+        <input type="text" disabled :value="word.vietnamese"/>
+      </div>
+      <br />
       <div>
         <router-link
           :to="{ name: 'Edit', params: { id: this.$route.params.id } }"
@@ -38,8 +46,8 @@
       };
     },
     async mounted() {
-       this.word = await ViewVocab(this.$route.params.id);
-       console.log(this.$route.params.id)
+      this.word = await ViewVocab(this.$route.params.id);
+      console.log(this.$route.params.id)
     },
   };
   </script>

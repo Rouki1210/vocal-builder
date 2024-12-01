@@ -12,6 +12,11 @@
           <input type="text" required v-model="word.german" />
         </div>
         <br />
+        <div class="ui labeled input fluid">
+          <div class="ui label"><i class="vietnam flag"></i> Vietnamese</div>
+          <input type="text" required v-model="word.vietnamese" />
+        </div>
+        <br />
         <button class="ui primary button">Submit</button>
       </form>
     </div>

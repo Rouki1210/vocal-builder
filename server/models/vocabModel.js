@@ -12,6 +12,10 @@ const vocabSchema = new mongoose.Schema(
       german: {
          type: String,
          required: true
+      },
+      vietnamese: {
+         type: String,
+         required: true
       }
    },
    {

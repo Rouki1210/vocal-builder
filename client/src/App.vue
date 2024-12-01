@@ -15,6 +15,9 @@
           <router-link to="/words/search" class="item">
             <i class="search icon"></i>Search
           </router-link>
+          <router-link to="/words/test" class="item">
+            <i class="search icon"></i>Search
+          </router-link>
           <a href="https://greenwich.edu.vn/en/english/" class="item">
             Greenwich Vietnam
           </a>

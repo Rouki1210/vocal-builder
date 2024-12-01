@@ -19,6 +19,8 @@ const vocabRouter = (app) => {
       .put(vocabController.editVocab)
       .delete(vocabController.deleteVocab)
    
+   app.route('/test')
+      .get(vocabController.testVocab)
 
 }
 

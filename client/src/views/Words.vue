@@ -8,6 +8,7 @@
           <tr>
             <th>English</th>
             <th>German</th>
+            <th>Vietnamese</th>
             <th colspan="2">Menu</th>
             <th>
                 <a class="ui button blue" @click.prevent="onDeleteAll()">
@@ -19,6 +20,7 @@
           <tr v-for="(word, i) in words" :key="i">
             <td>{{ word.english }}</td>
             <td>{{ word.german }}</td>
+            <td>{{ word.vietnamese }}</td>
             <td>
                 <router-link
                 class="ui button green"

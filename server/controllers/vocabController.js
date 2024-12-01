@@ -79,6 +79,26 @@ const searchVocab = async (req, res) => {
    }
 }
 
+const testVocab = async (req, res) => {
+   try {
+      const randomWords = await vocabModel.aggregate([{ $sample: {size: 5}}]);
+
+      const quiz =  randomWords.map((word) => ({
+         english: word.english,
+         german: word.german,
+         vietnamese: word.vietnamese,
+      }));
+
+      res.status(200).send({message: "Quiz generated successfully", quiz})
+   }
+   catch (err){
+      res.send(err);
+   }
+};
+
+
+
+
 //export functions
 module.exports = {
    viewAllVocabs,
@@ -87,5 +107,6 @@ module.exports = {
    viewVocab,
    editVocab,
    deleteVocab,
-   searchVocab
+   searchVocab,
+   testVocab
 }

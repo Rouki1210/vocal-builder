@@ -7,6 +7,7 @@ import Edit from './views/Edit.vue'
 import About from './views/About.vue'
 import Home from './views/Home.vue'
 import Search from './views/Search.vue'
+import Test from './views/Test.vue'
 
 Vue.use(Router)
 
@@ -48,7 +49,12 @@ routes: [
         path: '/words/search',
         name: 'Search',
         component: Search
-    }
+    },
+    {
+        path: '/words/test',
+        name: 'Test',
+        component: Test
+    },
     ]
 })
 

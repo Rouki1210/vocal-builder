@@ -66,3 +66,12 @@ export const searchVocab = async (word) => {
         console.error(err)
     }
 }
+
+export const testVocab = async () =>{
+    try {
+        const response = await axios.get(`${backend}test`);
+        return response.data;
+    } catch (error) {
+        console.error("Error fetching quiz:", error);
+    }
+}
