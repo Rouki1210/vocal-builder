@@ -2,13 +2,27 @@
     <div>
         <h1>Language Quiz</h1>
         <ul>
-            <li v-for="(item, index) in quiz" :key="index">
-                <p>English: {{ item.english }}</p>
-                <p>German: {{ item.german }}</p>
-                <p>Vietnamese: {{ item.vietnamese }}</p>
-            </li>
+            <div v-for="(item, index) in quiz" :key="index">
+                <div class="ui labeled input fluid">
+                    <div class="ui label"><i class="united kingdom flag"></i> English</div>
+                    <input type="text" required v-model="item.english" />
+                </div>
+                <br />
+                <div class="ui labeled input fluid">
+                    <div class="ui label"><i class="germany flag"></i> German</div>
+                    <input type="text" required v-model="item.german" />
+                </div>
+                <br />
+                <div class="ui labeled input fluid">
+                    <div class="ui label"><i class="vietnam flag"></i> Vietnamese</div>
+                    <input type="text" required v-model="item.vietnamese" />
+                </div>
+                <br />
+            </div>
         </ul>
-        <button @click="getQuiz">Get New Quiz</button>
+        <button class="ui primary button">Submit</button>
+        <br><br>
+        <button @click="getQuiz" class="ui primary button">Get New Quiz</button>
     </div>
 </template>
 
