@@ -1,13 +1,7 @@
-//declare model
 const vocabModel = require('../models/vocabModel')
 
-//declare functions
-//Note 1: use "async ... await" technique
-//Note 2: use "try ... catch" to handle error (if have)
 const viewAllVocabs = async (req, res) => {
    try {
-      //retrieve data from DB
-      //sort by "_id" descending : new data on the top
       let vocabs = await vocabModel.find({}).sort({ _id: - 1 })
       //return data as API (JSON format)
       res.json(vocabs)
@@ -18,7 +12,6 @@ const viewAllVocabs = async (req, res) => {
 
 const addVocab = async (req, res) => {
    try {
-      //get input data
       let vocab = req.body
       //save data to DB
       await vocabModel.create(vocab)
@@ -95,9 +88,6 @@ const testVocab = async (req, res) => {
       res.send(err);
    }
 };
-
-
-
 
 //export functions
 module.exports = {

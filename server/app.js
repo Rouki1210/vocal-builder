@@ -1,22 +1,10 @@
-//declare "express" framework
 const express = require('express')
 
-//declare server instance (app)
 const app = express()
+const port = 3000      
 
-//declare server port
-const port = 3000          //default
-
-//set content for homepage (test only)
-// app.get('/', (req, res) => {
-//    res.send("COMP1842 - MEVN stack web app")
-// })
-
-//declare "mongoose" library: to connect to MongoDB
 const mongoose = require('mongoose')
-//declare database connection string (URI) + database name
-const database = "mongodb+srv://vinhntgch220581:ftduLf2C7iMKK7mM@cluster0.kxmxy.mongodb.net/MEVN"     //vocab-builder: database name
-//connect to database
+const database = "mongodb+srv://vinhntgch220581:ftduLf2C7iMKK7mM@cluster0.kxmxy.mongodb.net/MEVN"     
 mongoose.connect(database)
    .then(() => console.log('connect to db succeed !'))
 .catch((err) => console.error('connect to db failed !' + err))

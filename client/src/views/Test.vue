@@ -32,7 +32,9 @@
         </li>
       </ul>
       <div class="button-group">
-        <button @click="" class="submit-button">Submit</button>
+        <button @click="prevQuestion" :disabled="currentIndex === 0" class="prev-button">Previous</button>
+        <button @click="nextQuestion" :disabled="currentIndex === quiz.length - 1" class="next-button">Next</button>
+        <button @click="checkResults" class="submit-button">Submit</button>
         <button @click="getQuiz" class="new-quiz-button">Get New Quiz</button>
       </div>
     </div>
@@ -47,8 +49,14 @@ export default {
             quiz: [],      // Holds the quiz data
             loading: false, // Loading state
             error: null,
+            currentIndex: 0,
             resultsShown: false,    // Error message
         };
+    },
+    computed: {
+    currentQuestion() {
+      return this.quiz[this.currentIndex] || {}; // Get the current question
+    },
     },
     methods: {
         async getQuiz() {
@@ -58,11 +66,12 @@ export default {
                 const data = await testVocab();
                 this.quiz = data.quiz.map((item) => ({
                 ...item,
-                  userGerman: "", // User's input for German
-                  userVietnamese: "", // User's input for Vietnamese
+                  userGerman: item.userGerman || "", // User's input for German
+                  userVietnamese: item.userVietnamese || "", // User's input for Vietnamese
                   isGermanCorrect: false, // Tracks if German is correct
                   isVietnameseCorrect: false, // Tracks if Vietnamese is correct
                 })); 
+                this.currentIndex = 0;
                 this.resultsShown = false;
             } catch (err) {
                 this.error = "Failed to fetch quiz. Please try again.";
@@ -70,14 +79,26 @@ export default {
                 this.loading = false;
             }
         },
-    },
-    async checkResults() {
-        this.quiz = this.quiz.map((item) => {
-        const isGermanCorrect = item.userGerman.trim().toLowerCase() === item.german.trim().toLowerCase();
-        const isVietnameseCorrect = item.userVietnamese.trim().toLowerCase() === item.vietnamese.trim().toLowerCase();
-        return { ...item, isGermanCorrect, isVietnameseCorrect };
-        });
-        this.resultsShown = true; // Show results
+        async checkResults() {
+            this.quiz = this.quiz.map((item) => {
+                const isGermanCorrect =
+                    item.userGerman?.trim().toLowerCase() === item.german?.trim().toLowerCase();
+                const isVietnameseCorrect =
+                    item.userVietnamese?.trim().toLowerCase() === item.vietnamese?.trim().toLowerCase();
+                return { ...item, isGermanCorrect, isVietnameseCorrect };
+            });
+            this.resultsShown = true; // Show results
+        },
+        prevQuestion() {
+            if (this.currentIndex > 0) {
+            this.currentIndex--;
+            }
+        },
+        nextQuestion() {
+            if (this.currentIndex < this.quiz.length - 1) {
+            this.currentIndex++;
+            }
+        }
     },
     mounted() {
         this.getQuiz(); // Fetch a quiz on component load
